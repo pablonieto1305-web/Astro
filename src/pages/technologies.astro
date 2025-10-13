@@ -1,0 +1,22 @@
+---
+import technologies from "../data/Technologies.json";
+import MiLayout from "../layouts/MiLayout.astro";
+import Technology from "../components/Technology.astro";
+import Button from "../components/Buttom.astro";
+import "../styles/Global.css";
+---
+
+<MiLayout>
+  <h1>Listado de tecnologías que domino</h1>
+  <ul>
+    {
+      technologies.map((technology) => (
+        <Technology
+          title={technology.title}
+          description={technology.description}
+        />
+      ))
+    }
+  </ul>
+  <Button href="/"> Volver </Button>
+</MiLayout>

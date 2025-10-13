@@ -1,0 +1,16 @@
+---
+import MiLayout from "../layouts/MiLayout.astro";
+
+// Obtener usuarios de la API
+const res = await fetch("https://jsonplaceholder.typicode.com/users");
+const users = await res.json();
+---
+
+<MiLayout title="Usuarios">
+  <h1>Listado de usuarios</h1>
+  <ul>
+    {users.map((user: { name: unknown; email: unknown; }) => (
+      <li>{user.name} - {user.email}</li>
+    ))}
+  </ul>
+</MiLayout>
